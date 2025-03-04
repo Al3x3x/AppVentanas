@@ -10,15 +10,13 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText numero1, numero2;
     ImageButton btnEnviar;
     TextView resultado;
+    Button verres;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-
-        numero1 = (EditText) findViewById(R.id.numero1);
-        numero2 = (EditText) findViewById(R.id.numero2);
-        btnEnviar = (ImageButton) findViewById(R.id.btn_enviar);
-        resultado = (TextView) findViewById(R.id.resultado);
+        numero1 = findViewById(R.id.numero1);
+        numero2 = findViewById(R.id.numero2);
+        btnEnviar = findViewById(R.id.btn_enviar);
+        resultado = findViewById(R.id.resultado);
+        verres = findViewById(R.id.button);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,14 +37,29 @@ public class MainActivity extends AppCompatActivity {
                 Double n2 = Double.parseDouble(numero2.getText().toString());
 
                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
-
                 i.putExtra("numero1", n1);
                 i.putExtra("numero2", n2);
-                startActivity(i);
+                startActivityForResult(i, 1);
+            }
+        });
+
+        verres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (resultado.getText().toString().isEmpty()) {
+                    resultado.setText("No hay resultado aún.");
+                }
             }
         });
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            String resultadoCalculado = data.getStringExtra("resultado2");
+            resultado.setText(resultadoCalculado);
+        }
+    }
 }

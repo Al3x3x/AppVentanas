@@ -91,4 +91,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbarSize="24sp" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <ImageButton
+        android:id="@+id/btn_enviar2"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:backgroundTint="#8BC34A"
+        android:contentDescription="Enviar datos"
+        android:scaleType="fitCenter"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
 </LinearLayout>

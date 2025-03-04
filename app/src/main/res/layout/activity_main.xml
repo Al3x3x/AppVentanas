@@ -71,4 +71,10 @@
         android:textColor="@android:color/holo_green_light"
         android:textSize="24sp" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver resultado" />
+
 </LinearLayout>
