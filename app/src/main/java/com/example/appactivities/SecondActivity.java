@@ -38,12 +38,12 @@ public class SecondActivity extends AppCompatActivity {
         btnEnviar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calcular(v); // Se llama antes de enviar el resultado
+                calcular(v);
 
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("resultado2", s);
-                setResult(RESULT_OK, resultIntent); // Se envía el resultado a MainActivity
-                finish(); // Se cierra esta actividad
+                setResult(RESULT_OK, resultIntent);
+                finish();
             }
         });
     }

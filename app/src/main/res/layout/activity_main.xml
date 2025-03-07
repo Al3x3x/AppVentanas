@@ -77,4 +77,15 @@
         android:layout_height="wrap_content"
         android:text="Ver resultado" />
 
+    <View
+        android:id="@+id/view9"
+        android:layout_width="match_parent"
+        android:layout_height="90dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="304dp"
+        android:text="Martin alexis castaneda barajas 21130846" />
+
 </LinearLayout>
